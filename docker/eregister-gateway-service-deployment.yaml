@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: eregister-gateway
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eregister-gateway
+  template:
+    metadata:
+      labels:
+        app: eregister-gateway
+    spec:
+      containers:
+      - name: eregister-gateway
+        imagePullPolicy: Never
+        image: eregister-gateway
+        ports:
+        - containerPort: 30000
+#        volumeMounts:
+#        - mountPath: /var/log/eregister
+#          name: test-volume
+#      volumes:
+#      - name: test-volume
+#        hostPath:
+#          path: /home/hung/data/docker/docker-data/log/eregister
+#          type: Directory

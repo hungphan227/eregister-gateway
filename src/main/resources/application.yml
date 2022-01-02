@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eregister-gateway-service
+  cloud:
+    gateway:
+    discovery:
+      locator:
+        enabled: true
+server:
+  port: 30000
+eureka:
+  client:
+    serviceURL:
+      defaultZone: http://eregister-discovery-service:8761/eureka
+eregister:
+  serviceName: eregister
+  http:
+    port: 9998
+  websocket:
+    port: 9997
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: INFO
