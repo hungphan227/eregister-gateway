@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: eregister-gateway
+  namespace: ingress-nginx
+spec:
+  selector:
+    app: eregister-gateway
+  ports:
+  - name: http-port
+    protocol: TCP
+    targetPort: 30000
+    port: 80
+    #nodePort: 30000
+  type: LoadBalancer
