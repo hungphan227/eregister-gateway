@@ -26,6 +26,9 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.*
 public class Application {
 
     @Autowired
+    AuthenticationFilter authenticationFilter;
+
+    @Autowired
     private GeneralPathFilter generalPathFilter;
 
     @Autowired
@@ -42,9 +45,10 @@ public class Application {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(p -> p.path("/websocket/**").filters(f -> f.filter(websocketPathFilter)).uri("no://op"))
-//                .route(p -> p.path("/**").uri("http://localhost:9998"))
-                .route(p -> p.path("/**").filters(f -> f.filter(generalPathFilter)).uri("no://op"))
+                .route(p -> p.path("/user/login").uri("lb://eregister-user-service"))
+                .route(p -> p.path("/eregister/websocket/**").filters(f -> f.filter(websocketPathFilter)).uri("no://op"))
+    //                .route(p -> p.path("/**").uri("http://localhost:9998"))
+                .route(p -> p.path("/eregister/**").filters(f -> f.filters(authenticationFilter, generalPathFilter)).uri("no://op"))
                 .build();
     }
 

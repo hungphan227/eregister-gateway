@@ -13,11 +13,14 @@ eureka:
     serviceURL:
       defaultZone: http://eregister-discovery-service:8761/eureka
 eregister:
-  serviceName: eregister
+  name: eregister
   http:
     port: 9998
   websocket:
     port: 9997
+eregisterUserService:
+  name: eregister-user-service
+  port: 10000
 logging:
   level:
     reactor:

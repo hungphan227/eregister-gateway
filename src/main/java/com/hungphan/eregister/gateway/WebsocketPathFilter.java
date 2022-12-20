@@ -24,7 +24,7 @@ public class WebsocketPathFilter implements GatewayFilter, Ordered {
 
     private static final String CLIENT_SESSION_ID_NAME = "CLIENT_SESSION_ID";
 
-    @Value("${eregister.serviceName}")
+    @Value("${eregister.name}")
     private String eregisterName;
 
     @Value("${eregister.websocket.port}")
