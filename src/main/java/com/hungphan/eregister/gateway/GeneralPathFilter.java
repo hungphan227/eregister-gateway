@@ -53,7 +53,7 @@ public class GeneralPathFilter implements GatewayFilter, Ordered {
         }
         if (host == null) {
             host = list.get((Commons.ipSelectCount)%list.size()).getHost();
-            if(exchange.getRequest().getPath().toString().contains("get-client-session-id")) Commons.ipSelectCount++;
+            if (exchange.getRequest().getPath().toString().contains("get-client-session-id")) Commons.ipSelectCount++;
         }
 
         String newUrl = "http://" + host + ":" + eregisterHttpPort + exchange.getRequest().getPath();
