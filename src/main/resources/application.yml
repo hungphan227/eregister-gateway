@@ -21,11 +21,11 @@ eregister:
 eregisterUserService:
   name: eregister-user-service
   port: 10000
-logging:
-  level:
-    reactor:
-      netty: INFO
-    org:
-      springframework:
-        cloud:
-          gateway: INFO
+#logging:
+#  level:
+#    reactor:
+#      netty: INFO
+#    org:
+#      springframework:
+#        cloud:
+#          gateway: INFO
